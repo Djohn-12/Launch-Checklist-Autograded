@@ -42,10 +42,10 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     let copilotStatus = validateInput(copilot);
     let fuelStatus = validateInput(fuelLevel);
     let cargoStatus = validateInput(cargoLevel);
-     pilotStatus = document.getElementById('pilotStatus'); 
-     copilotStatus = document.getElementById('copilotStatus');
-     fuelStatus = document.getElementById('fuelStatus');
-     cargoStatus = document.getElementById('cargoStatus');
+     //pilotStatus = document.getElementById('pilotStatus'); 
+     //copilotStatus = document.getElementById('copilotStatus');
+     //fuelStatus = document.getElementById('fuelStatus');
+     //cargoStatus = document.getElementById('cargoStatus');
 
     if (pilotStatus === "Empty" || copilotStatus === "Empty" || fuelStatus === "Empty" || cargoStatus === "Empty"){
         alert("All fields are required");
@@ -55,11 +55,10 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         alert("Please enter valid information for all fields");
         
     } 
- 
     
-
+    document.getElementById("launchStatus").innerText = "Shuttle is Ready for Launch";
+    document.getElementById("launchStatus").style.color = "green";
     
-
     if (fuelLevel < 10000 || cargoLevel > 10000) {
         document.getElementById("faultyItems").style.visibility = "visible";
         document.getElementById("launchStatus").innerText ="Shuttle Not Ready for Launch";
@@ -71,20 +70,19 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         if (cargoLevel > 10000) {
             document.getElementById("cargoStatus").innerText = "Cargo mass too high for launch";
             document.getElementById("cargoStatus").style.color = "red";
+            return;
         }
+
     
     } 
     document.getElementById("pilotStatus").innerText = `Pilot ${pilot} Ready`;
     document.getElementById("copilotStatus").innerText = `Co-pilot ${copilot} Ready`;
     document.getElementById("fuelStatus").innerText = `Fuel level ${fuelLevel} high enough for launch`;
     document.getElementById("cargoStatus").innerText = `Cargo mass ${cargoLevel} low enough for launch`;  
-    document.getElementById("launchStatus").innerText = "Shuttle is Ready for Launch";
-    document.getElementById("launchStatus").style.color = "green";
+    
     return;
 }
 
-
- 
  module.exports.addDestinationInfo = addDestinationInfo;
  module.exports.validateInput = validateInput;
  module.exports.formSubmission = formSubmission;
