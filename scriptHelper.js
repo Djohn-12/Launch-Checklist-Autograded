@@ -49,11 +49,12 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
     if (pilotStatus === "Empty" || copilotStatus === "Empty" || fuelStatus === "Empty" || cargoStatus === "Empty"){
         alert("All fields are required");
+        return;
         
     }
     if (pilotStatus === "Is a Number" || copilotStatus === "Is a Number" || fuelStatus === "Not a Number" || cargoStatus === "Not a Number") {
         alert("Please enter valid information for all fields");
-        
+        return;
     } 
     
     document.getElementById("launchStatus").innerHTML = `Shuttle is Ready for Launch`;
